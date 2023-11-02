@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cphjgmvnyb4k1"]
+
+[ext_resource type="Script" path="res://src/scripts/player.gd" id="1_xgvmi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ujs3c"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_833fg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o782a"]
+size = Vector2(24, 161)
+
+[node name="Player" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_ujs3c")
+script = ExtResource("1_xgvmi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(24, 161)
+texture = SubResource("CanvasTexture_833fg")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, 80.5)
+shape = SubResource("RectangleShape2D_o782a")
