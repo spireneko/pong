@@ -9,8 +9,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o782a"]
 size = Vector2(24, 161)
 
-[node name="Player" type="StaticBody2D"]
+[node name="Player" type="RigidBody2D"]
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_ujs3c")
+gravity_scale = 0.0
+max_contacts_reported = 10
+contact_monitor = true
+lock_rotation = true
 script = ExtResource("1_xgvmi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,3 +26,5 @@ centered = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(12, 80.5)
 shape = SubResource("RectangleShape2D_o782a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
