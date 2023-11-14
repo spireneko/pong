@@ -1,29 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://1cxx0v7sllbn"]
+[gd_scene load_steps=7 format=3 uid="uid://1cxx0v7sllbn"]
 
 [ext_resource type="PackedScene" uid="uid://cbbn2g3kpw4ne" path="res://src/scenes/floor.tscn" id="1_nvl0b"]
+[ext_resource type="Script" path="res://src/scripts/arena.gd" id="1_nwr54"]
 [ext_resource type="PackedScene" uid="uid://cb6qap20m85y6" path="res://src/scenes/wall.tscn" id="2_7egse"]
 [ext_resource type="PackedScene" uid="uid://cphjgmvnyb4k1" path="res://src/scenes/player.tscn" id="3_nx3nv"]
 [ext_resource type="PackedScene" uid="uid://cequa1n3mgibc" path="res://src/scenes/ball.tscn" id="4_w1k7k"]
+[ext_resource type="PackedScene" uid="uid://bj7u61fcpp7r6" path="res://src/scenes/hud.tscn" id="6_fttgm"]
 
 [node name="Arena" type="Node"]
-
-[node name="Floor" parent="." instance=ExtResource("1_nvl0b")]
-position = Vector2(0, 5)
-
-[node name="Floor2" parent="." instance=ExtResource("1_nvl0b")]
-position = Vector2(0, 675)
-
-[node name="Wall" parent="." instance=ExtResource("2_7egse")]
-position = Vector2(0, 15)
-
-[node name="Wall2" parent="." instance=ExtResource("2_7egse")]
-position = Vector2(1270, 15)
+script = ExtResource("1_nwr54")
 
 [node name="Player" parent="." instance=ExtResource("3_nx3nv")]
 position = Vector2(1192, 253)
 
 [node name="Player2" parent="." instance=ExtResource("3_nx3nv")]
 position = Vector2(64, 253)
+player_control = 0
 
 [node name="Ball" parent="." instance=ExtResource("4_w1k7k")]
 position = Vector2(656, 328)
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Floor" parent="Map" instance=ExtResource("1_nvl0b")]
+position = Vector2(0, 5)
+
+[node name="Floor2" parent="Map" instance=ExtResource("1_nvl0b")]
+position = Vector2(0, 675)
+
+[node name="LeftWall" parent="Map" instance=ExtResource("2_7egse")]
+position = Vector2(0, 15)
+
+[node name="RightWall" parent="Map" instance=ExtResource("2_7egse")]
+position = Vector2(1270, 15)
+
+[node name="HUD" parent="." instance=ExtResource("6_fttgm")]
+
+[connection signal="ball_touched" from="Map/LeftWall" to="." method="_on_left_wall_ball_touched"]
+[connection signal="ball_touched" from="Map/RightWall" to="." method="_on_right_wall_ball_touched"]

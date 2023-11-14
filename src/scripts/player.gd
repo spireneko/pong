@@ -2,6 +2,15 @@ extends RigidBody2D
 
 const SPEED := 500
 
+@export var player_control := PlayerControl.ArrowPlayer
+
+enum PlayerControl {
+	WasdPlayer,
+	ArrowPlayer
+}
+
+
+
 var velocity : Vector2
 var starting_x_pos : float
 # Called when the node enters the scene tree for the first time.
@@ -19,7 +28,10 @@ func _process(delta: float) -> void:
 	pass
 
 func _unhandled_key_input(event: InputEvent) -> void:
-	velocity = Vector2(0, Input.get_axis("ui_up", "ui_down"))
+	if player_control == PlayerControl.ArrowPlayer:
+		velocity = Vector2(0, Input.get_axis("ui_up", "ui_down"))
+	elif player_control == PlayerControl.WasdPlayer:
+		velocity = Vector2(0, Input.get_axis("Up", "Down"))
 
 
 func _on_body_entered(body):

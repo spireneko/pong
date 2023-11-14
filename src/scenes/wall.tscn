@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cb6qap20m85y6"]
+[gd_scene load_steps=4 format=3 uid="uid://cb6qap20m85y6"]
+
+[ext_resource type="Script" path="res://src/scripts/wall.gd" id="1_nf2ti"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_soaly"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odowe"]
 size = Vector2(1, 66)
 
-[node name="Wall" type="StaticBody2D"]
+[node name="Wall" type="StaticBody2D" groups=["walls"]]
 scale = Vector2(10, 10)
 collision_mask = 0
+script = ExtResource("1_nf2ti")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.447059, 0.447059, 0.447059, 1)

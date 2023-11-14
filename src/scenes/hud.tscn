@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj7u61fcpp7r6"]
+
+[ext_resource type="Script" path="res://src/scripts/hud.gd" id="1_xr4xg"]
+
+[node name="HUD" type="Node"]
+script = ExtResource("1_xr4xg")
+
+[node name="RightScore" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "1"
+
+[node name="LeftScore" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "2"
+
+[node name="Time" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "0:00"
