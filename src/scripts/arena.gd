@@ -14,6 +14,7 @@ var winner : Global.Winner
 
 
 func _ready():
+	max_score = Global.config.get_value("Game Properties", "Max score")
 	reset(Global.Winner.LEFT)
 
 func _physics_process(delta):

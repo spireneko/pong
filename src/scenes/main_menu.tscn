@@ -1,0 +1,99 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc5ewv2lyf7up"]
+
+[ext_resource type="Script" path="res://src/scripts/main_menu.gd" id="1_gogdy"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_wtrl1"]
+
+[node name="MainMenu" type="MarginContainer"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gogdy")
+
+[node name="BlueBackground" type="ColorRect" parent="."]
+modulate = Color(0.211765, 0.239216, 0.290196, 1)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="GameName" type="MarginContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="GameName" type="Label" parent="MarginContainer/HBoxContainer/GameName"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 100
+text = "Pong"
+horizontal_alignment = 1
+
+[node name="Menu" type="VBoxContainer" parent="MarginContainer/HBoxContainer/GameName"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MarginContainer/HBoxContainer/GameName/Menu"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/HBoxContainer/GameName/Menu"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit
+"
+
+[node name="Settings" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Settings"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Settings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Settings/HBoxContainer"]
+layout_mode = 2
+text = "Max score (minimum is 1)"
+
+[node name="MaxScoreSpinBox" type="SpinBox" parent="MarginContainer/HBoxContainer/Settings/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_icons/updown = SubResource("ImageTexture_wtrl1")
+min_value = 1.0
+value = 5.0
+rounded = true
+allow_greater = true
+update_on_text_changed = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Settings"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Settings/HBoxContainer2"]
+layout_mode = 2
+text = "Single player"
+
+[node name="SingleplayerCheckBox" type="CheckBox" parent="MarginContainer/HBoxContainer/Settings/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/GameName/Menu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/GameName/Menu/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -4,3 +4,5 @@ enum Winner {
 	LEFT,
 	RIGHT
 }
+
+var config : ConfigFile
