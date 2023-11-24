@@ -10,10 +10,18 @@ config_version=5
 
 [application]
 
-config/name="pong"
+config/name="Pong"
 run/main_scene="res://src/scenes/arena.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://src/scripts/global.gd"
+
+[debug]
+
+gdscript/warnings/integer_division=0
 
 [display]
 
