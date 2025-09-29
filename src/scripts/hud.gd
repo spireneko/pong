@@ -15,7 +15,7 @@ func _ready():
 
 func reset():
 	set_time(0)
-	set_score(Vector2.ZERO)
+	set_score(Vector2i.ZERO)
 	gameover_menu.hide()
 
 
@@ -31,7 +31,7 @@ func set_time(current_time: int):
 	time.text = result
 
 
-func set_score(new_score: Vector2):
+func set_score(new_score: Vector2i):
 	left_score.text = str(new_score.x)
 	right_score.text = str(new_score.y)
 

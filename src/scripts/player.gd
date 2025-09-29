@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	move_and_collide(velocity * SPEED * delta)
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
+func _unhandled_key_input(_event: InputEvent) -> void:
 	if player_control == PlayerControl.ArrowPlayer:
 		velocity = Vector2(0, Input.get_axis("ui_up", "ui_down"))
 	elif player_control == PlayerControl.WasdPlayer:

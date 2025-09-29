@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cb6qap20m85y6"]
 
-[ext_resource type="Script" path="res://src/scripts/wall.gd" id="1_nf2ti"]
+[ext_resource type="Script" uid="uid://j7jbq0hitpu6" path="res://src/scripts/wall.gd" id="1_nf2ti"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_soaly"]
 

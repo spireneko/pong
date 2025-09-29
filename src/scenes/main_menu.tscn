@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bc5ewv2lyf7up"]
 
-[ext_resource type="Script" path="res://src/scripts/main_menu.gd" id="1_gogdy"]
+[ext_resource type="Script" uid="uid://bodnllgcqfdw6" path="res://src/scripts/main_menu.gd" id="1_gogdy"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_wtrl1"]
 
@@ -82,7 +82,6 @@ min_value = 1.0
 value = 5.0
 rounded = true
 allow_greater = true
-update_on_text_changed = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/Settings"]
 layout_mode = 2
